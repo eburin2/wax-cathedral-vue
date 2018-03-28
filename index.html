@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Wax Cathedral</title>
+  </head>
+  <div class="container">
+  <body>
+    <div id="app">
+      <div class="header">
+        <img class="logo" src="img/logos.png"/>
+        <h1 class="waxTitle">Wax Cathedral</h1>
+      </div>
+      <div class="search-container">
+        <p id="searchBy">Search by:</p>
+           <select id="searchCriteria">
+              <option selected="selected" value="artist">Artist Name</option>
+              <option value="album">Album Title</option>
+              <option value="year">Year Released</option>
+              <option value="origin">Artist Origin</option>
+              <option value="rating">Album Rating</option>
+          </select>
+        <input type="text" v-model="keyword" placeholder="Search Term"
+        />
+      </div>
+      <div class="album-container">
+          <div class="album" v-for="post in filteredList">
+            <h2 class="artistStyles">{{ post.artist }}</h2>
+            <!-- <a v-bind:href="post.link" target="_blank"> -->
+              <img class="cover" v-bind:src="post.img" />
+              <p class="nameStyles">{{ post.album }}</p>
+              <p class="originStyles">{{ post.origin }}</p>
+              <p class="originStyles">{{ post.year  }}</p>
+              <p class="ratingStyles">{{ post.rating }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+
+
+    class Post {
+      constructor(artist, album, img, year, origin, rating) {
+      this.artist = artist;
+      this.album = album;
+      this.img = img;
+      this.year= year;
+      this.yearString = year.toString();
+      this.origin = origin;
+      this.rating = rating;
+      }
+    }
+
+    const app = new Vue ({
+      el: '#app',
+      data: {
+        keyword: '',
+        postList: [
+
+      new Post(
+        'U.S. Maple',
+        'Talker',
+       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwde-Xs05vU8w8Nv7cZv9TcZoD5cho4S6RghEHn1--HfS8neljg",
+         '1999',
+        'Chicago, Illinois',
+        '4 stars'
+      ),
+      new Post(
+        'Wipers',
+        'Is This Real?',
+         "https://img.discogs.com/CsPXMjc7QAIUtUfdXR1xp7Pcae0=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-2530628-1292690330.jpeg.jpg",
+         '1980',
+        'Portland, Oregon',
+        '4 stars'
+      ),
+      new Post(
+        'Gignoux',
+        'The Broadway Boys',
+         "https://img.discogs.com/6_5F5nIzXqfUtd1V2PplFU7SGw0=/fit-in/304x304/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-5500781-1394990512-9572.jpeg.jpg",
+         '1980',
+        'San Francisco, California',
+        '4 stars'
+      ),
+      new Post(
+        'Jim Pembroke',
+        "Corporal Cauliflowers Mental Function",
+         "https://img.discogs.com/jcYCCnSjRhO1cJUl4TL4LdPTUIo=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3764980-1390927072-3100.jpeg.jpg",
+         '1977',
+        'Finland',
+        '4 stars'
+      ),
+      new Post(
+        'Cloven Hoof',
+        's/t',
+         "http://www.rockadrome.com/store/images/detailed/16/clovenhoofrelp.jpg",
+         '1984',
+        'United Kingdom',
+        '4 stars'
+      ),
+      new Post(
+        'Lift',
+        'Caverns of Your Brain',
+         "https://img.discogs.com/XR9rcJPG-0_DVwXppLh4CJZ-VHo=/fit-in/500x542/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1953654-1254738800.jpeg.jpg",
+         '1977',
+        'Louisiana, New Orleans',
+        '4 stars'
+      ),
+      new Post(
+        'Jean Pierre Alarcen',
+        's/t',
+         "https://img.discogs.com/yqzCKjc93dvi7QLV_y9DDcdTmp8=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1813792-1425473686-5523.jpeg.jpg",
+         '1978',
+        'France',
+        '4 stars'
+      ),
+      new Post(
+        'Scott Walker',
+        'Climate of Hunter',
+         "http://s3.amazonaws.com/quietus_production/images/articles/14685/scottclimate_1394709639_crop_550x550.jpeg",
+         '1984',
+        'United Kingdom',
+        '5 stars'
+      ),
+      new Post(
+        'Stepson',
+        's/t',
+         "https://img.discogs.com/wbwuet9Jt526LQRmzYHuHkOyKYo=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-2211918-1376994976-4406.jpeg.jpg",
+         '1974',
+        'Portland, Oregon',
+        '4 stars'
+      ),
+      new Post(
+        'Blue Oyster Cult',
+        'Tyrany and Mutation',
+         "https://img.discogs.com/AO36K8-XgZphVp8NzwXd2m3ie6Q=/fit-in/600x594/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-423459-1349439730-8290.jpeg.jpg",
+         '1973',
+        'Long Island, New York',
+        '4 stars'
+      ),
+      new Post(
+        'D. Rider',
+        'Mother of Curses',
+         "https://img.discogs.com/8R2jDDDUmZaAIkM_JMkuOuE8hn0=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3079930-1314746346.jpeg.jpg",
+         '2009',
+        'Chicago, Illinois',
+        '5 stars'
+      ),
+      new Post(
+        'Marcos Valle',
+        'Previsão Do Tempo',
+         "https://img.discogs.com/aY2JfoSwGSlyqhdG_im4LBZuXSU=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1205173-1275669725.jpeg.jpg",
+         '1973',
+        'Rio De Janeiro, Brazil',
+        '4 stars'
+      ),
+      new Post(
+        'Wigwam',
+        'Being',
+         "https://img.discogs.com/u_2BCkabR_KkMgEvaD1RlhZpeD4=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-763391-1417955555-2198.jpeg.jpg",
+         '1974',
+        'Finland',
+        '4 stars'
+      ),
+      new Post(
+        'Dark Side',
+        'Rumours in Our Own Time, Legends in Our Own Room',
+         "https://img.discogs.com/uN0B2L_ntoqRYXbQauOJ1DjX1tA=/fit-in/600x616/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-5828801-1403915755-4081.jpeg.jpg",
+         '1980',
+        'Baltimore, Maryland',
+        '4 stars'
+      ),
+      new Post(
+        'Terje Rypdal',
+        'Descendre',
+         "https://img.discogs.com/LV3Nn-LkJm8aWxulHke7LhqcnpM=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1030897-1356440107-1674.jpeg.jpg",
+         '1980',
+        'Oslo, Norway',
+        '4 stars'
+      ),
+      new Post(
+        'Bo Hansson',
+        'El-Ahrairah',
+         "https://img.discogs.com/uyNNPQxomLIQwzjvzPjbgweFTBY=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1120534-1483872338-2249.jpeg.jpg",
+         '1977',
+        'Stockholm, Sweeden',
+        '4 stars'
+      ),
+      new Post(
+        'Electric Frankenstein',
+        'What Me Worry?',
+         "https://img.discogs.com/8tGk1P1wGb0iVo6_VCzsvBMfX98=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1897131-1396200180-7474.jpeg.jpg",
+         '1976',
+        'Italy',
+        '4 stars'
+      ),
+      new Post(
+        'The Happiness Boys',
+        'Resident Alien',
+         "https://img.discogs.com/bbmSaCEmcsFIUyGPZQXjPwjnYV8=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-236799-1307819577.jpeg.jpg",
+         '1983',
+        'Miami, Florida',
+        '4 stars'
+      ),
+      new Post(
+        'Denis Weise',
+        'Valhalla',
+         "https://img.discogs.com/CjIXtrMNkKcsatqM2R55GKW0cRM=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-5744306-1401543495-5162.jpeg.jpg",
+         '1979',
+        'San Diego, California',
+        '5 stars'
+      ),
+      new Post(
+        'Don Robertson',
+        'Spring',
+         "https://img.discogs.com/U9B1wdo2LnvoX0RWyF0Zn_hbqGg=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6209086-1417984662-2529.jpeg.jpg",
+         '1984',
+        'Denver, Colorado',
+        '5 stars'
+      ),
+      new Post(
+        'Tangerine Dream',
+        'Rubycon',
+         "https://img.discogs.com/b-sG1vmr6Hf3bFplpgzv8rx-r1c=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3077549-1314644349.jpeg.jpg",
+         '1975',
+        'Germany',
+        '5 stars'
+      ),
+      new Post(
+        'Judas Priest',
+        'Rocka Rolla',
+         "https://img.discogs.com/iw6K7OW-Mu94kJAugOzTdRxgJD4=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-2971732-1309803161.jpeg.jpg",
+         '1974',
+        'United Kingdom',
+        '5 stars'
+      ),
+      new Post(
+        'Birth Control',
+        'Backdoor Possibilities',
+         "https://img.discogs.com/_52DG4fD4U1nxYG55SdxRkeef38=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-830799-1393007967-8953.jpeg.jpg",
+         '1976',
+        'Germany',
+        '3 stars'
+      ),
+      new Post(
+        'Lars Hollmer',
+        'Från Natt Idag',
+         "https://img.discogs.com/UzgBSJBt6G2pvj2RutP5SLPKUhs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-767843-1156760508.jpeg.jpg",
+         '1983',
+        'Sweden',
+        '4 stars'
+      ),
+      new Post(
+        'Ralph Lundsten',
+        'Universe',
+         "https://img.discogs.com/aj8FnSRP3HFYa_tOFa5SNNyG7Rg=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-958137-1177501642.jpeg.jpg",
+         '1977',
+        'Sweden',
+        '4 stars'
+      ),
+      new Post(
+        'The Eurythmics',
+        'In the Garden',
+         "https://img.discogs.com/W4iAiOtoFWwojJpONRPJbWW5aDo=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-861559-1429647990-8020.jpeg.jpg",
+         '1981',
+        'United Kingdom',
+        '5 stars'
+      ),
+      new Post(
+        'Wild Dogs',
+        "Man's Best Friend",
+         "https://img.discogs.com/QbbHxyRF8EsnPkt2eHGzUr8HtMk=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-2020538-1340556839-5713.jpeg.jpg",
+         '1984',
+        'Portland, Oregon',
+        '4 stars'
+      ),
+      new Post(
+        'Hampton Grease Band',
+        'Music to Eat',
+         "https://img.discogs.com/C0VuiOGVgSw4-9GibXnAL9XmAHo=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1828349-1303137406.jpeg.jpg",
+         '1971',
+        'Atlanta, Georgia',
+        '4 stars'
+      ),
+      new Post(
+        'Wolf',
+        'Edge of the World',
+         "https://img.discogs.com/3TdMgMPjYGRIN4tSp9IguOP4Z48=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3145761-1411410351-3429.jpeg.jpg",
+         '1984',
+        'United Kingdom',
+        '4 stars'
+      ),
+      new Post(
+        'Stars and Stips',
+        'Nevergreens',
+         "https://img.discogs.com/4FLWZqbOdZmnBE35E5Pq78tiZe8=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3589404-1459171445-6204.mpo.jpg",
+         '1976',
+        'Netherlands',
+        '4 stars'
+      ),
+      new Post(
+        'Arturo Stalteri',
+        'Andrè Sulla Luna',
+         "https://img.discogs.com/kgRmdALOP1uCMULUbmZyLmIDe8I=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-4813486-1376326295-2851.jpeg.jpg",
+         '1979',
+        'Italy',
+        '4 stars'
+      ),
+      new Post(
+        'Lungfish',
+        'Necrophones',
+         "https://img.discogs.com/vbxinR-fkJFCloJI4JJAnTZA2Fk=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1065744-1189456562.jpeg.jpg",
+         '2000',
+        'Baltimore, Maryland',
+        '4 stars'
+      ),
+      new Post(
+        'Zamla Mammaz Manna',
+        'Familjesprickor',
+         "https://img.discogs.com/tmzv8DdRKp8riAD1rI5274bDzlU=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-769334-1158350667.jpeg.jpg",
+         '1980',
+        'Sweden',
+        '4 stars'
+      ),
+      new Post(
+        'White Boy and the Average Rat Band',
+        's/t',
+         "https://img.discogs.com/TyiNS1VsvgCj3ZmnNIBuglS_Z5w=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-2420944-1410782408-3524.jpeg.jpg",
+         '1980',
+        'Baltimore, Maryland',
+        '4 stars'
+      ),
+      new Post(
+        'Motorhead',
+        'Another Perfect Day',
+         "https://img.discogs.com/0LHSrrL3b1ZKo7JgHjrm3th3PzE=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-809318-1271109684.jpeg.jpg",
+         '1983',
+        'United Kingdom',
+        '4 stars'
+      ),
+      new Post(
+        'A. More',
+        "Flying Doesn't Help",
+         "https://img.discogs.com/PJqsSj6-NO_S1w_vSbm0oU1saO8=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-625854-1409746827-5601.jpeg.jpg",
+         '1979',
+        'United Kingdom',
+        '4 stars'
+      ),
+      new Post(
+        'Benoit Widemann',
+        'Stress!',
+         "https://img.discogs.com/gLxPGc88rJaf5HiF1sgGStPADm0=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1513642-1427193756-4536.jpeg.jpg",
+         '1977',
+        'France',
+        '4 stars'
+      ),
+      new Post(
+        'TSOL',
+        'Change Today?',
+         "https://img.discogs.com/WZwNk7PkuMhZlBOqOOtgYKcslJY=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-822872-1414013105-3062.jpeg.jpg",
+         '1984',
+        'Los Angeles, California USA',
+        '4 stars'
+      ),
+      new Post(
+        'Supersister',
+        'Pudding En Gisteren',
+         "https://img.discogs.com/3OC4KH0fsusYy2XMJu35nAsECO4=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1753197-1402826047-6935.jpeg.jpg",
+         '1972',
+        'Netherlands',
+        '5 stars'
+      )
+
+
+]
+      },
+      methods: {
+        toggleOnOff(){
+          this.onOff = !this.onOff;
+        }
+      },
+
+      computed: {
+        filteredList() {
+
+            //get search critria from dropdown menu
+
+          var sel = document.getElementById("searchCriteria");
+          var criteriaName = sel.options[sel.selectedIndex].value;
+
+            // switch statement to account for search options
+
+          return this.postList.filter((post) => {
+            switch(criteriaName) {
+            case "artist":
+                return post.artist.toLowerCase().includes(this.keyword.toLowerCase());
+                break;
+            case "album":
+                return post.album.toLowerCase().includes(this.keyword.toLowerCase());
+                break;
+            case "year":
+                return post.yearString.toLowerCase().includes(this.keyword.toLowerCase());
+                break;
+            case "origin":
+                return post.origin.toLowerCase().includes(this.keyword.toLowerCase());
+                break;
+            case "rating":
+                return post.rating.toLowerCase().includes(this.keyword.toLowerCase());
+                break;
+            }
+          });
+
+        }
+      }
+    });
+    </script>
+
+
+
+  </body>
+</html>

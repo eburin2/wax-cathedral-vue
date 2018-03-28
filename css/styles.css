@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+  }
+
+.header {
+   margin-right: 5px;
+   width: 100%;
+   height: 100px;
+   border: 2px solid #50E3C2;
+   background-color: #50E3C2;
+   display: flex;
+}
+
+#searchCriteria {
+  width: 200px;
+  height: 30px;
+  border: 4px solid #50E3C2;
+  background-color: white;
+}
+
+#searchBy {
+  margin-left: 490px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'futura';
+  color: #26499F;
+  margin-right: 10px;
+  margin-bottom: 5px;
+
+}
+
+.search-container {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-left: 5px;
+}
+
+.container {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nameStyles {
+  text-align: center;
+  font-size: 20px;
+  color: #26499F;
+  font-family: futura;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 20px;
+  width: 12em;
+  overflow-wrap: break-word;
+}
+
+.logo {
+  margin-left: 30px;
+}
+
+.waxTitle {
+  font-family: 'Phosphate';
+  color: #26499F;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.cover {
+  width: 200px;
+  height: 200px;
+  font-family: futura;
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.album-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.originStyles {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 20px;
+  color: #26499F;
+  font-family: futura;
+  margin-bottom: 2px;
+  margin-left: 20px;
+  width: 12em;
+  overflow-wrap: break-word;
+}
+
+.artistStyles {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #26499F;
+  font-weight: bold;
+  font-family: futura;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  text-align: center;
+  width: 13em;
+  overflow-wrap: break-word;
+}
+
+.cover:hover {
+    border: 10px solid #50E3C2;
+    }
+
+
+input {
+    width: 200px;
+    height: 30px;
+    border: 4px solid #50E3C2;
+    color: #26499F;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 55px;
+    margin-right: 40px;
+    border-radius: 5px;
+  }
+
+  .ratingStyles {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: #26499F;
+    font-family: futura;
+    margin-left: 10px;
+  }
+
+  select {
+    font-size: 14px;
+    font-weight: bold;
+    color: #26499F;
+    text-align: center;
+  }
