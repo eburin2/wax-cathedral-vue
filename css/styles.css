@@ -44,6 +44,7 @@
   width: 75vw;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .nameStyles {
@@ -60,6 +61,18 @@
 
 .logo {
   margin-left: 30px;
+}
+
+.record {
+  position: absolute;
+  z-index: -1;
+  margin-left: -185px;
+  margin-top: 15px;
+  transition: transform 500ms ease-in-out;
+}
+
+.record:hover {
+  transform: translate(50px, 0);
 }
 
 .waxTitle {
@@ -111,7 +124,7 @@
 }
 
 .cover:hover {
-    border: 10px solid #50E3C2;
+    border-right: 12px solid #fff;
     }
 
 

@@ -28,8 +28,8 @@
       <div class="album-container">
           <div class="album" v-for="post in filteredList">
             <h2 class="artistStyles">{{ post.artist }}</h2>
-            <!-- <a v-bind:href="post.link" target="_blank"> -->
               <img class="cover" v-bind:src="post.img" />
+              <img class="record" src="img/record.png"/>
               <p class="nameStyles">{{ post.album }}</p>
               <p class="originStyles">{{ post.origin }}</p>
               <p class="originStyles">{{ post.year  }}</p>
