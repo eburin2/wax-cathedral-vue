@@ -24,6 +24,7 @@
   font-size: 14px;
   font-weight: bold;
   font-family: 'futura';
+  white-space: nowrap;
   color: #26499F;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -143,8 +144,8 @@ input {
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    margin-left: 55px;
-    margin-right: 40px;
+    margin-left: 60px;
+    margin-right: 110px;
     border-radius: 5px;
   }
 
@@ -176,8 +177,8 @@ input {
       margin-right: 10px;
     }
 
-    .record:hover {
-      display: block;
+    #searchBy {
+      margin-left: 500px;
     }
 
 }
