@@ -54,7 +54,7 @@
   font-family: futura;
   margin-bottom: 5px;
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: -20px;
   width: 12em;
   overflow-wrap: break-word;
 }
@@ -65,7 +65,7 @@
 
 .record {
   position: absolute;
-  margin-left: -217px;
+  margin-left: -200px;
   margin-top: 12px;
   -webkit-transition: all 1s ease-in-out;
    -moz-transition: all 1s ease-in-out;
@@ -75,7 +75,7 @@
 }
 
 .record:hover {
-  transform: translateX(65px);
+  transform: translateX(45px);
 }
 
 .waxTitle {
@@ -91,8 +91,7 @@
   width: 200px;
   height: 200px;
   font-family: futura;
-  margin-left: 40px;
-  margin-right: 20px;
+  margin-left: 0px;
   margin-bottom: 10px;
   margin-top: 10px;
   pointer-events: none;
@@ -111,7 +110,7 @@
   color: #26499F;
   font-family: futura;
   margin-bottom: 2px;
-  margin-left: 20px;
+  margin-left: -20px;
   width: 12em;
   overflow-wrap: break-word;
 }
@@ -124,7 +123,8 @@
   font-weight: bold;
   font-family: futura;
   margin-bottom: 5px;
-  margin-left: 10px;
+  margin-left: -25px;
+  margin-right: 10px;
   text-align: center;
   width: 13em;
   overflow-wrap: break-word;
@@ -154,7 +154,7 @@ input {
     font-size: 20px;
     color: #26499F;
     font-family: futura;
-    margin-left: 10px;
+    margin-left: -60px;
   }
 
   select {
@@ -163,3 +163,21 @@ input {
     color: #26499F;
     text-align: center;
   }
+
+  @media screen and (min-width: 1100px){
+    .artistStyles {
+      margin-right: 30px;
+    }
+
+  }
+
+  @media screen and (max-width: 900px){
+    .artistStyles {
+      margin-right: 10px;
+    }
+
+    .record:hover {
+      display: block;
+    }
+
+}
