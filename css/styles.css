@@ -145,7 +145,7 @@ input {
     font-size: 14px;
     text-align: center;
     margin-left: 60px;
-    margin-right: 35px;
+    margin-right: 40px;
     border-radius: 5px;
   }
 
@@ -183,7 +183,7 @@ input {
     }
 
     input {
-      margin-right: 60px;
+      margin-right: 55px;
     }
 
 }
