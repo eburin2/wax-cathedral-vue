@@ -124,7 +124,7 @@
   font-weight: bold;
   font-family: futura;
   margin-bottom: 5px;
-  margin-left: -25px;
+  margin-left: -30px;
   margin-right: 10px;
   text-align: center;
   width: 13em;
@@ -155,7 +155,7 @@ input {
     font-size: 20px;
     color: #26499F;
     font-family: futura;
-    margin-left: -60px;
+    margin-left: -50px;
   }
 
   select {
