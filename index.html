@@ -36,7 +36,7 @@
               <p class="ratingStyles">{{ post.rating }}</p>
           </div>
         </div>
-        <form v-on:submit.prevent="addNewAlbum">
+        <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
           <div class="form">
             <label for="artist">Artist</label>
             <input type="text" id="artist" @input="post.artist = $event.target.value"/>
@@ -419,7 +419,19 @@
             rating: this.post.rating
           };
           this.postList.push(newAlbum);
-        }
+        },
+        formSubmit: function(event) {
+         this.post.aritst = this.artist;
+         this.post.album = this.album;
+         this.post.img = this.img;
+         this.post.year = this.year;
+         this.post.origin = this.origin;
+         this.post.rating = this.rating;
+
+         this.artist = this.album = this.img = this.year = this.origin = this.rating =  '';
+
+         event.target.reset();
+       }
       },
       computed: {
         filteredList() {
