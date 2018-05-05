@@ -34,7 +34,7 @@
               <p class="originStyles">{{ post.origin }}</p>
               <p class="originStyles">{{ post.year  }}</p>
               <p class="ratingStyles">{{ post.rating }}</p>
-              <button id="remove" v-on:click="removeAlbum(post)">remove</button>
+              <button  id="remove" v-on:click="removeAlbum(post)">remove</button>
           </div>
         </div>
         <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
