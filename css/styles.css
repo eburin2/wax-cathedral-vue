@@ -34,6 +34,7 @@
   color: #26499F;
   margin-left: 20px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 #cityProfile {
@@ -42,6 +43,7 @@
   font-size: 18px;
   color: #26499F;
   margin-left: -135px;
+  white-space: nowrap;
 }
 
 #searchCriteria {
