@@ -27,6 +27,7 @@
   color: #26499F;
   font-family: 'futura';
   text-decoration: none;
+  font-size: 18px;
 }
 
 .nav li a {
@@ -139,6 +140,7 @@
   margin-left: 20px;
   margin-top: 40px;
   white-space: nowrap;
+  font-size: 35px;
 }
 
 .cover {
