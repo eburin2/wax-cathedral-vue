@@ -273,8 +273,8 @@ input {
       margin-left: 50px;
     }
 
-    /* #cityProfile {
-      margin-left: -120px;
-    } */
+    #cityProfile {
+      margin-left: -100px;
+    }
 
 }
