@@ -12,6 +12,38 @@
    display: flex;
 }
 
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#profilePic {
+  margin-top: 40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-left: 30px;
+  margin-bottom: -50px;
+}
+
+#nameProfile {
+  font-family: 'futura';
+  margin-top: 70px;
+  font-size: 24px;
+  color: #26499F;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+#cityProfile {
+  font-family: 'futura';
+  margin-top: 110px;
+  font-size: 18px;
+  color: #26499F;
+  margin-left: -135px;
+}
+
 #searchCriteria {
   width: 200px;
   height: 30px;
@@ -28,7 +60,6 @@
   color: #26499F;
   margin-right: 10px;
   margin-bottom: 5px;
-
 }
 
 .search-container {

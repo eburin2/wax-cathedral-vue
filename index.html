@@ -13,6 +13,11 @@
           <img class="logo" src="img/logos.png"/>
           <h1 class="waxTitle">Wax Cathedral</h1>
         </div>
+        <div class="profile">
+          <img id="profilePic" src="img/alan.png"/>
+          <p id="nameProfile">Elliot Burin</p>
+          <p id="cityProfile">Portland, Oregon</p>
+        </div>
         <div class="search-container">
           <p id="searchBy">Search by:</p>
              <select id="searchCriteria">
@@ -34,7 +39,7 @@
               <p class="originStyles">{{ post.origin }}</p>
               <p class="originStyles">{{ post.year  }}</p>
               <p class="ratingStyles">{{ post.rating }}</p>
-              <button  id="remove" v-on:click="removeAlbum(post)">remove</button>
+              <button  id="remove" v-on:click="removeAlbum(post)">Remove</button>
           </div>
         </div>
         <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
@@ -86,7 +91,6 @@
     const app = new Vue ({
       el: '#app',
       data: {
-        isEditing: false,
         keyword: '',
         postList: [
           new Post(
