@@ -13,14 +13,14 @@
    overflow: hidden;
 }
 
-.navigation {
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
 }
 
-.navigation li {
+.nav li {
   margin-top: 60px;
   margin-left: 100px;
   margin-right: 5px;
@@ -30,7 +30,7 @@
   font-size: 18px;
 }
 
-.navigation li a {
+.nav li a {
   text-decoration: none;
   color: #26499F;
 }
@@ -96,7 +96,7 @@
   padding-left: 5px;
 }
 
-.containerMain {
+.container {
   width: 75vw;
   margin-left: auto;
   margin-right: auto;
