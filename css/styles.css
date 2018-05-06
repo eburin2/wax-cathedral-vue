@@ -42,7 +42,7 @@
   margin-top: 110px;
   font-size: 18px;
   color: #26499F;
-  margin-left: -140px;
+  margin-left: -135px;
   white-space: nowrap;
 }
 
@@ -270,6 +270,10 @@ input {
     input {
       margin-right: 50px;
       margin-left: 50px;
+    }
+
+    #cityProfile {
+      margin-left: -110px;
     }
 
 }
