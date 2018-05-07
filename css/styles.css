@@ -212,7 +212,7 @@ input {
     font-size: 20px;
     color: #26499F;
     font-family: futura;
-    margin-left: -50px;
+    margin-left: -55px;
   }
 
   select {
@@ -256,7 +256,7 @@ input {
   }
 
   #remove {
-    margin-left: 80px;
+    margin-left: 75px;
     margin-top: 5px;
     border: 3px solid #50E3C2;
     border-radius: 5px;
@@ -319,7 +319,11 @@ input {
     }
 
     .ratingStyles {
-      margin-left: -5px;
+      margin-left: -30px;
+    }
+
+    #remove {
+      margin-left: 75px;
     }
 
 }
