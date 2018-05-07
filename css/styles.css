@@ -64,7 +64,7 @@
   margin-top: 140px;
   font-size: 18px;
   color: #26499F;
-  margin-left: -140px;
+  margin-left: -135px;
   white-space: nowrap;
 }
 
@@ -314,12 +314,9 @@ input {
       margin-left: 50px;
     }
 
-    #cityProfile {
-      margin-left: -140px;
-    }
-
     .ratingStyles {
       margin-left: -30px;
+
     }
 
     #remove {
