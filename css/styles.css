@@ -318,4 +318,8 @@ input {
       margin-left: -120px;
     }
 
+    .ratingStyles {
+      font-size: 12px !important;
+    }
+
 }
