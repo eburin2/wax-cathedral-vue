@@ -47,6 +47,8 @@
               <p class="originStyles">{{ post.origin }}</p>
               <p class="originStyles">{{ post.year  }}</p>
               <p class="ratingStyles">{{ post.rating }}</p>
+              <!-- <button @click="isEditing = !isEditing" v-if="!isEditing">Edit</button>
+              <button @click="save" v-else-if="isEditing">Save</button> -->
               <button  id="remove" v-on:click="removeAlbum(post)">Remove</button>
           </div>
         </div>
@@ -450,6 +452,24 @@
              'img/record.png',
              '1972',
             'Netherlands',
+            '5 stars'
+          ),
+          new Post (
+            'James Blood Ulmer',
+            'Free Lancing',
+            "https://img.discogs.com/TPD6PNedhByueX92MR73_JITX-M=/fit-in/350x368/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1082119-1190708518.jpeg.jpg",
+            'img/record.png',
+            '1981',
+            'St. Mathews, South Carolina',
+            '5 stars'
+          ),
+          new Post (
+            'Peter Hammill',
+            'Sitting Targets',
+            "http://www.progarchives.com/progressive_rock_discography_covers/443/cover_5640161152016_r.jpg",
+            'img/record.png',
+            '1981',
+            'United Kindgom',
             '5 stars'
           )
         ],

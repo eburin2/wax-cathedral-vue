@@ -13,6 +13,14 @@
    overflow: hidden;
 }
 
+form {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav {
   display: flex;
   flex-direction: row;
@@ -213,6 +221,11 @@ input {
     color: #26499F;
     font-family: futura;
     margin-left: -55px;
+  }
+
+  label {
+    font-family: 'futura';
+    color: #26499F;
   }
 
   select {
