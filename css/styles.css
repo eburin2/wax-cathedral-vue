@@ -21,6 +21,55 @@ form {
   align-items: center;
 }
 
+#album {
+  width: 285px;
+}
+
+#albumLabel {
+  margin-left: 80px;
+}
+
+#url {
+  margin-left: 80px;
+}
+
+#img {
+  width: 202px;
+}
+
+#originLabel {
+  margin-left: 82px;
+}
+
+#origin {
+  width: 285px;
+}
+
+#ratingLabel {
+  margin-left: 82px;
+}
+
+#rating {
+  width: 287px;
+}
+
+#yearReleased {
+  margin-left: 82px;
+}
+
+#year {
+  width: 228px;
+}
+
+#artistLabel {
+  margin-left: 80px;
+}
+
+#artist {
+  width: 292px;
+}
+
+
 .nav {
   display: flex;
   flex-direction: row;
@@ -283,7 +332,7 @@ input {
     height: 30px;
     margin-bottom: 100px;
     margin-top: 10px;
-    margin-left: 100px;
+    margin-left: 135px;
     background-color: #fff;
   }
 

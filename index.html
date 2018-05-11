@@ -54,27 +54,27 @@
         </div>
         <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
           <div class="form">
-            <label for="artist">Artist:</label>
+            <label id="artistLabel" for="artist">Artist:</label>
             <input type="text" id="artist" @input="post.artist = $event.target.value"/>
           </div>
           <div class="form">
-            <label for="album">Album:</label>
+            <label id="albumLabel" for="album">Album:</label>
             <input type="text" id="album" v-model="post.album"/>
           </div>
           <div class="form">
-            <label for="img">Album Image URL:</label>
+            <label id="url" for="img">Album Image URL:</label>
             <input type="text" id="img" v-model="post.img"/>
           </div>
           <div class="form">
-            <label for="year">Year Released:</label>
+            <label id="yearReleased" for="year">Year Released:</label>
             <input type="text" id="year" v-model="post.year"/>
           </div>
           <div class="form">
-            <label for="origin">Origin:</label>
+            <label id="originLabel" for="origin">Origin:</label>
             <input type="text" id="origin" v-model="post.origin"/>
           </div>
           <div class="form">
-            <label for="rating">Rating:</label>
+            <label id="ratingLabel" for="rating">Rating:</label>
             <input type="text" id="rating" v-model="post.rating"/>
           </div>
           <input type="submit" id="addAlbum" value="Add Album"/>
@@ -489,7 +489,7 @@
             artist: this.post.artist,
             album: this.post.album,
             img: this.post.img,
-            record: this.post.record,
+            record: 'img/record.png',
             year: this.post.year,
             origin: this.post.origin,
             rating: this.post.rating
