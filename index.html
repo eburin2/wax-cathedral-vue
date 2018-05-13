@@ -13,12 +13,12 @@
           <img class="logo" src="img/logos.png"/>
           <h1 class="waxTitle">Wax Cathedral</h1>
           <div>
-          <ul class="nav">
-            <li><a href="https://eburin2.github.io/wax-cathedral-vue/">Home</a></li>
-            <li>Albums</li>
-            <li>Lists</li>
-            <li>People</li>
-          </ul>
+            <ul class="nav">
+              <li><a href="https://eburin2.github.io/wax-cathedral-vue/">Home</a></li>
+              <li>Albums</li>
+              <li>Lists</li>
+              <li>People</li>
+            </ul>
           </div>
         </div>
         <div class="profile">
@@ -35,7 +35,7 @@
                 <option value="origin">Artist Origin</option>
                 <option value="rating">Album Rating</option>
             </select>
-          <input type="text" v-model="keyword" placeholder="Search Term"
+          <input id="keyword" type="text" v-model="keyword" placeholder="Search Term"
           />
         </div>
         <div class="album-container">
@@ -58,12 +58,12 @@
             <input type="text" id="artist" @input="post.artist = $event.target.value"/>
           </div>
           <div class="form">
-            <label id="albumLabel" for="album">Album:</label>
-            <input type="text" id="album" v-model="post.album"/>
-          </div>
-          <div class="form">
             <label id="url" for="img">Album Image URL:</label>
             <input type="text" id="img" v-model="post.img"/>
+          </div>
+          <div class="form">
+            <label id="albumLabel" for="album">Album:</label>
+            <input type="text" id="album" v-model="post.album"/>
           </div>
           <div class="form">
             <label id="yearReleased" for="year">Year Released:</label>
