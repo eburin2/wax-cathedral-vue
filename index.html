@@ -43,14 +43,12 @@
           <div class="album" v-for="(post, index) in filteredList">
             <h2 class="artistStyles">{{ post.artist }}</h2>
             <img class="cover" v-bind:src="post.img" />
-              <img class="record" v-bind:src="post.record"/>
-              <p class="nameStyles">{{ post.album }}</p>
-              <p class="originStyles">{{ post.origin }}</p>
-              <p class="originStyles">{{ post.year  }}</p>
-              <p class="ratingStyles">{{ post.rating }}</p>
-              <!-- <button @click="isEditing = !isEditing" v-if="!isEditing">Edit</button>
-              <button @click="save" v-else-if="isEditing">Save</button> -->
-              <button  id="remove" v-on:click="removeAlbum(post)">Remove</button>
+            <img class="record" v-bind:src="post.record"/>
+            <p class="nameStyles">{{ post.album }}</p>
+            <p class="originStyles">{{ post.origin }}</p>
+            <p class="originStyles">{{ post.year  }}</p>
+            <p class="ratingStyles">{{ post.rating }}</p>
+            <button  id="remove" v-on:click="removeAlbum(post)">Remove</button>
           </div>
         </div>
         <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
@@ -483,6 +481,9 @@
           origin: '',
           rating: ''
         }
+      },
+      mounted() {
+        this.cachedUser = Object.assign({}, this.post);
       },
       methods: {
         addNewAlbum: function() {
