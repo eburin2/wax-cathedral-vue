@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Wax Cathedral</title>
   </head>
@@ -74,9 +73,10 @@
           </div>
           <div class="form">
             <label id="ratingLabel" for="rating">Rating:</label>
-            <input type="text" id="rating" v-model="post.rating"/>
+            <input v-on:presskey:enter="addNewAlbum" type="text" id="rating" v-model="post.rating"/>
           </div>
-          <input type="submit" id="addAlbum" value="Add Album"/>
+          <input id="addAlbum" type="submit" value="Add Album">
+          <span v-show="error" class="error">Oops! Please fill out ALL the forms fields.</span>
         </form>
       </div>
     </div>
@@ -101,6 +101,7 @@
       el: '#app',
       data: {
         keyword: '',
+        error: false,
         postList: [
           new Post(
             'U.S. Maple',
@@ -141,7 +142,7 @@
           new Post(
             'Cloven Hoof',
             's/t',
-             "http://www.rockadrome.com/store/images/detailed/16/clovenhoofrelp.jpg",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_ZV2ld4bkoLDVhbRM2KHi5bn265Sj7pXcqcDRMEuTFMlOpCX",
              'img/record.png',
              '1984',
             'United Kingdom',
@@ -485,9 +486,14 @@
             record: 'img/record.png',
             year: this.post.year,
             origin: this.post.origin,
-            rating: this.post.rating
+            rating: this.post.rating,
           };
+          if(!this.post.artist || !this.post.album || !this.post.img || !this.post.year || !this.post.origin || !this.post.rating){
+           this.error = true;
+          } else {
           this.postList.push(newAlbum);
+          this.error = false;
+        };
         },
         removeAlbum: function(post) {
           this.postList.splice(this.postList.indexOf(post), 1)

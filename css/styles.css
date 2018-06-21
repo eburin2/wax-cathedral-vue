@@ -19,6 +19,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* margin-bottom: 50px; */
 }
 
 #album {
@@ -341,6 +342,17 @@ input {
     text-align: center;
   }
 
+  .error{
+  font-size: 20px;
+  margin-top: -65px;
+  margin-left: 50px;
+  color: #fff;
+  display: block;
+  color: #e44e42;
+  font-weight: 600;
+}
+
+
 
   @media only screen and (min-width: 1100px){
     .artistStyles {
@@ -410,5 +422,6 @@ input {
       width: 150px;
       margin-right: -20px;
     }
+
 
 }
