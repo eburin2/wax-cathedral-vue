@@ -235,12 +235,11 @@ form {
 }
 
 .artistStyles {
-  text-align: center;
   margin-top: 30px;
   font-size: 20px;
   color: #26499F;
   font-weight: bold;
-  font-family: futura;
+  font-family: 'futura';
   margin-bottom: 5px;
   margin-left: -30px;
   margin-right: 10px;

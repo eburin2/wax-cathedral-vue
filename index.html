@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="profile">
-          <img id="profilePic" src="img/alan.png"/>
+          <img id="profilePic" src="img/elliot.jpg"/>
           <p id="nameProfile">Elliot Burin</p>
           <p id="cityProfile">Portland, Oregon</p>
         </div>
@@ -35,8 +35,7 @@
                 <option value="origin">Artist Origin</option>
                 <option value="rating">Album Rating</option>
             </select>
-          <input id="keyword" type="text" v-model="keyword" placeholder="Search Term"
-          />
+          <input id="keyword" type="text" v-model="keyword" placeholder="Search Term"/>
         </div>
         <div class="album-container">
           <div class="album" v-for="(post, index) in filteredList">
@@ -48,6 +47,7 @@
             <p class="originStyles">{{ post.year  }}</p>
             <p class="ratingStyles">{{ post.rating }}</p>
             <button  id="remove" v-on:click="removeAlbum(post)">Remove</button>
+            <!-- <button  id="edit" v-on:click="post.editing = true">Edit</button> -->
           </div>
         </div>
         <form v-on:submit.prevent="addNewAlbum" @submit.prevent="formSubmit">
@@ -73,7 +73,7 @@
           </div>
           <div class="form">
             <label id="ratingLabel" for="rating">Rating:</label>
-            <input v-on:presskey:enter="addNewAlbum" type="text" id="rating" v-model="post.rating"/>
+            <input v-on:presskey:enter="addNewAlbum" type="text" id="rating" v-model.la="post.rating">
           </div>
           <input id="addAlbum" type="submit" value="Add Album">
           <span v-show="error" class="error">Oops! Please fill out ALL the form fields.</span>
@@ -474,9 +474,9 @@
           rating: ''
         }
       },
-      mounted() {
-        this.cachedUser = Object.assign({}, this.post);
-      },
+      // mounted() {
+      //   this.cachedUser = Object.assign({}, this.post);
+      // },
       methods: {
         addNewAlbum: function() {
           let newAlbum = {
@@ -497,6 +497,10 @@
         },
         removeAlbum: function(post) {
           this.postList.splice(this.postList.indexOf(post), 1)
+        },
+        editPost: function(post){
+            post.editing = false;
+            console.log(post);
         },
         formSubmit: function(event) {
          this.post.aritst = this.artist;
